@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: amka-lookup-api
+    env: python
+    region: frankfurt
+    plan: starter
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
+    envVars:
+      - key: KED_CLIENT_ID
+        sync: false
+      - key: KED_CLIENT_SECRET
+        sync: false
+      - key: KED_TOKEN_URL
+        sync: false
+      - key: KED_AMKA_URL
+        sync: false
